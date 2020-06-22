@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/NavigationDrawerLoginSQLite.iml" filepath="$PROJECT_DIR$/NavigationDrawerLoginSQLite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/markarov - Copy - Copy-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/markarov - Copy - Copy-app.iml" group="markarov - Copy - Copy/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/markarov_-_Copy_-_Copy.iml" filepath="$PROJECT_DIR$/.idea/modules/markarov_-_Copy_-_Copy.iml" group="markarov_-_Copy_-_Copy" />
+    </modules>
+  </component>
+</project>
