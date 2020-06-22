@@ -9,7 +9,7 @@
     android:paddingTop="0dp"
     tools:context="com.michael.jared.navigationdrawerloginsqlite.LoginActivity"
     android:orientation="vertical">
-
+    <!-- sample comment -->
     <LinearLayout
         android:paddingTop="35dp"
         android:layout_width="match_parent"

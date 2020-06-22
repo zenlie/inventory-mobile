@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void iniciar() {
-
+        // sample comment
         if (!validar()) return;
 
         email = eEmail.getText().toString();
