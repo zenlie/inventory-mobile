@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //se agrego codigo del 39 al 68
+        //code 39 to 68 was added
         Bundle b = getIntent().getExtras();
 
         ident = b.getString("IDENT");

@@ -16,7 +16,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // crea tabla usuario
+        // create user table
         db.execSQL(DatabaseManagerUser.CREATE_TABLE);
     }
 

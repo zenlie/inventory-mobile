@@ -64,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
 
         final DatabaseManagerUser databaseManager = new DatabaseManagerUser(getApplicationContext());
 
+        //membersihkan field text
         eEmail.getText().clear();
         ePassword.getText().clear();
 

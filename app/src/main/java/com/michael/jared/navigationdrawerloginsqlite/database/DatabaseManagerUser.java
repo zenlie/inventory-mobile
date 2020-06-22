@@ -11,19 +11,19 @@ import java.util.List;
 
 public class DatabaseManagerUser extends DatabaseManager {
 
-    private static final String NOMBRE_TABLA = "demo";
-    private static final String CN_ID = "_id";
-    private static final String CN_CORREO = "correo";
-    private static final String CN_PASSWORD = "password";
-    private static final String CN_IMAGE = "imagen";
-    private static final String CN_NOMBRE = "nombre";
+    private static final String NAMA_TABLE = "demo";
+    private static final String USER_ID = "_id";
+    private static final String USER_MAIL = "mail";
+    private static final String USER_PASSWORD = "password";
+    private static final String USER_IMAGE = "imagen";
+    private static final String USER_NAMA = "nombre";
 
-    public static final String CREATE_TABLE = "create table " + NOMBRE_TABLA + " ("
-            + CN_ID + " integer PRIMARY KEY AUTOINCREMENT, "
-            + CN_CORREO + " text NULL, "
-            + CN_PASSWORD + " text NULL, "
-            + CN_IMAGE + " BLOB NULL, "
-            + CN_NOMBRE + " text NOT NULL "
+    public static final String CREATE_TABLE = "create table " + NAMA_TABLE + " ("
+            + USER_ID + " integer PRIMARY KEY AUTOINCREMENT, "
+            + USER_MAIL + " text NULL, "
+            + USER_PASSWORD + " text NULL, "
+            + USER_IMAGE + " BLOB NULL, "
+            + USER_NAMA + " text NOT NULL "
             + ");";
 
     public DatabaseManagerUser(Context ctx) {
@@ -37,52 +37,52 @@ public class DatabaseManagerUser extends DatabaseManager {
 
     private ContentValues generarContentValues(String id, String correo, String password, byte[] imagen, String nombre){
         ContentValues valores = new ContentValues();
-        valores.put(CN_ID, id);
-        valores.put(CN_CORREO, correo);
-        valores.put(CN_PASSWORD, password);
-        valores.put(CN_IMAGE, imagen);
-        valores.put(CN_NOMBRE, nombre);
+        valores.put(USER_ID, id);
+        valores.put(USER_MAIL, correo);
+        valores.put(USER_PASSWORD, password);
+        valores.put(USER_IMAGE, imagen);
+        valores.put(USER_NAMA, nombre);
 
         return valores;
     }
 
 
     public void insertar_parametros(String id, String correo, String password, byte[] imagen, String nombre) {
-        Log.d("usuario_insertar", super.getDb().insert(NOMBRE_TABLA,null,generarContentValues(id, correo, password, imagen, nombre))+"");
+        Log.d("usuario_insertar", super.getDb().insert(NAMA_TABLE,null,generarContentValues(id, correo, password, imagen, nombre))+"");
     }
 
     public void actualizar_parametros(String id, String correo, String pass, byte[] imagen, String nombre) {
 
         ContentValues valores = new ContentValues();
-        valores.put(CN_ID, id);
-        valores.put(CN_CORREO, correo);
-        valores.put(CN_PASSWORD, pass);
-        valores.put(CN_IMAGE, imagen);
-        valores.put(CN_NOMBRE, nombre);
+        valores.put(USER_ID, id);
+        valores.put(USER_MAIL, correo);
+        valores.put(USER_PASSWORD, pass);
+        valores.put(USER_IMAGE, imagen);
+        valores.put(USER_NAMA, nombre);
 
         String [] args = new String[]{id};
 
-        Log.d("actualizar", super.getDb().update(NOMBRE_TABLA, valores,"_ID=?", args)+"");
+        Log.d("actualizar", super.getDb().update(NAMA_TABLE, valores,"_ID=?", args)+"");
     }
 
     @Override
     public void eliminar(String id) {
 
-        super.getDb().delete(NOMBRE_TABLA, CN_ID +"=?", new String[]{id});
+        super.getDb().delete(NAMA_TABLE, USER_ID +"=?", new String[]{id});
     }
 
     @Override
     public void eliminarTodo() {
 
-        super.getDb().execSQL("DELETE FROM "+ NOMBRE_TABLA+";");
+        super.getDb().execSQL("DELETE FROM "+ NAMA_TABLE+";");
     }
 
     @Override
     public Cursor cargarCursor() {
 
-        String [] columnas = new String[]{CN_ID, CN_CORREO, CN_PASSWORD, CN_IMAGE, CN_NOMBRE};
+        String [] columnas = new String[]{USER_ID, USER_MAIL, USER_PASSWORD, USER_IMAGE, USER_NAMA};
 
-        return super.getDb().query(NOMBRE_TABLA, columnas, null, null, null, null, null);
+        return super.getDb().query(NAMA_TABLE, columnas, null, null, null, null, null);
     }
 
     @Override
