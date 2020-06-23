@@ -16,8 +16,8 @@ import com.app.inv.navigationdrawerloginsqlite.database.DatabaseManagerUser;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText eEmail, ePassword;
-    private Button acceder;
-    private TextView registrar;
+    private Button signin;
+    private TextView signup;
     private String email;
     private String password;
     private Cursor comprobar;
@@ -29,10 +29,10 @@ public class LoginActivity extends AppCompatActivity {
 
         eEmail = (EditText)findViewById(R.id.email);
         ePassword = (EditText)findViewById(R.id.password);
-        acceder = (Button)findViewById(R.id.signin);
-        registrar = (TextView)findViewById(R.id.signup);
+        signin = (Button)findViewById(R.id.signin);
+        signup = (TextView)findViewById(R.id.signup);
 
-        registrar.setOnClickListener(new View.OnClickListener() {
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent =new Intent(getApplicationContext(),UserRegistro.class);
@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        acceder.setOnClickListener(new View.OnClickListener() {
+        signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 iniciar();
