@@ -65,13 +65,13 @@ public class UserRegister extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = null;
-                //verificacion de la version de plataforma
+                // platform version verification
                 if(Build.VERSION.SDK_INT < 19){
-                    //android 4.3  y anteriores
+                    // android 4.3 and earlier
                     i = new Intent();
                     i.setAction(Intent.ACTION_GET_CONTENT);
                 }else {
-                    //android 4.4 y superior
+                    // android 4.4 and higher
                     i = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                     i.addCategory(Intent.CATEGORY_OPENABLE);
                 }
@@ -95,7 +95,7 @@ public class UserRegister extends AppCompatActivity {
 
     public void register(){
 
-        if (!validar()) return;
+        if (!validate()) return;
 
         sEmail = email.getText().toString();
         sPassword = password.getText().toString();
@@ -136,7 +136,7 @@ public class UserRegister extends AppCompatActivity {
                 }, 3000);
     }
 
-    private boolean validar() {
+    private boolean validate() {
         boolean valid = true;
 
         String sName = name.getText().toString();
@@ -182,7 +182,7 @@ public class UserRegister extends AppCompatActivity {
             imageView.setImageURI(data.getData());
             bytes = imageToByte(imageView);
 
-            // para que se vea la imagen en circulo
+            // to show the image in a circle
             Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
             roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
             roundedBitmapDrawable.setCircular(true);
