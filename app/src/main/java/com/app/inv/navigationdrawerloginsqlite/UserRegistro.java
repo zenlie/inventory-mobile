@@ -43,12 +43,12 @@ public class UserRegistro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registro_user);
 
-        imageView = (ImageView) findViewById(R.id.usuario_imagen_registro);
+        imageView = (ImageView) findViewById(R.id.user_image_register);
         loginLink = (TextView)findViewById(R.id.link_login);
-        email = (EditText)findViewById(R.id.correo_registro);
-        password = (EditText)findViewById(R.id.password_registro);
-        nombre = (EditText)findViewById(R.id.nombre_registro);
-        registrar = (Button)findViewById(R.id.btn_registro_usuario);
+        email = (EditText)findViewById(R.id.email_register);
+        password = (EditText)findViewById(R.id.password_register);
+        nombre = (EditText)findViewById(R.id.name_register);
+        registrar = (Button)findViewById(R.id.btn_register_user);
         bitmap_foto = BitmapFactory.decodeResource(getResources(),R.drawable.imagen);
         roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap_foto);
         roundedBitmapDrawable.setCircular(true);
