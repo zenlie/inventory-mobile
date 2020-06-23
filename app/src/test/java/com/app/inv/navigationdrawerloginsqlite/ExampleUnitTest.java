@@ -1,4 +1,4 @@
-package com.michael.jared.navigationdrawerloginsqlite;
+package com.app.inv.navigationdrawerloginsqlite;
 
 import org.junit.Test;
 

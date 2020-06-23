@@ -1,4 +1,4 @@
-package com.michael.jared.navigationdrawerloginsqlite;
+package com.app.inv.navigationdrawerloginsqlite;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,8 +20,8 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.michael.jared.navigationdrawerloginsqlite.database.DatabaseManagerUser;
-import com.michael.jared.navigationdrawerloginsqlite.entity.User;
+import com.app.inv.navigationdrawerloginsqlite.database.DatabaseManagerUser;
+import com.app.inv.navigationdrawerloginsqlite.entity.User;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

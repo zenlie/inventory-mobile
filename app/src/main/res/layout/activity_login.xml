@@ -7,7 +7,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context="com.michael.jared.navigationdrawerloginsqlite.LoginActivity"
+    tools:context="com.app.inv.navigationdrawerloginsqlite.LoginActivity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -21,7 +21,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aplikasi Inventory"
+            android:text="Aplikasi Warehouse"
             android:textColor="@color/colorBlanco"
             android:textSize="35dp" />
 

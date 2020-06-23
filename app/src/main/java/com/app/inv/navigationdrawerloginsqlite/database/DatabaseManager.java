@@ -1,4 +1,4 @@
-package com.michael.jared.navigationdrawerloginsqlite.database;
+package com.app.inv.navigationdrawerloginsqlite.database;
 
 import android.content.Context;
 import android.database.Cursor;

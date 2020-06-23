@@ -1,4 +1,4 @@
-package com.michael.jared.navigationdrawerloginsqlite;
+package com.app.inv.navigationdrawerloginsqlite;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -10,14 +10,13 @@ import android.os.Bundle;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.michael.jared.navigationdrawerloginsqlite.database.DatabaseManagerUser;
+import com.app.inv.navigationdrawerloginsqlite.database.DatabaseManagerUser;
 import java.io.ByteArrayOutputStream;
 
 /**

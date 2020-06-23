@@ -1,10 +1,10 @@
-package com.michael.jared.navigationdrawerloginsqlite.database;
+package com.app.inv.navigationdrawerloginsqlite.database;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
-import com.michael.jared.navigationdrawerloginsqlite.entity.User;
+import com.app.inv.navigationdrawerloginsqlite.entity.User;
 import java.util.ArrayList;
 import java.util.List;
 

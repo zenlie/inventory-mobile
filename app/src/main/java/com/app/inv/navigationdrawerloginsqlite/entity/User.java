@@ -1,4 +1,4 @@
-package com.michael.jared.navigationdrawerloginsqlite.entity;
+package com.app.inv.navigationdrawerloginsqlite.entity;
 
 /**
  * Created by Maycol Meza on 15/04/2017.
