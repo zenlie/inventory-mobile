@@ -47,7 +47,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/etusuario"
+            android:id="@+id/email"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:hint=" E-mail" />
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:id="@+id/etpass"
+            android:id="@+id/password"
             android:inputType="textPassword"
             android:hint=" Password"/>
 
@@ -65,8 +65,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
-            android:id="@+id/button"
-            android:layout_below="@+id/etpass"
+            android:id="@+id/signin"
+            android:layout_below="@+id/password"
             android:onClick="ingresar"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"/>
