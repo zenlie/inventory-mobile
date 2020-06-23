@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private DatabaseManagerUser databaseManagerUser;
-    private User itemUsuario;
+    private User itemUser;
     private String ident;
 
     @Override
@@ -35,18 +35,18 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //se agrego codigo del 39 al 68
+        // added code from 39 to 68
         Bundle b = getIntent().getExtras();
 
         ident = b.getString("IDENT");
 
         databaseManagerUser= new DatabaseManagerUser(getApplicationContext());
-        itemUsuario = databaseManagerUser.getUsuario(ident); // find the registered user in the bbdd
+        itemUser = databaseManagerUser.getUsuario(ident); // find the registered user in the bbdd
 
         View header = ((NavigationView)findViewById(R.id.nav_view)).getHeaderView(0);
 
-        ((TextView) header.findViewById(R.id.tv_nombre_usuario_menu)).setText(itemUsuario.getNombre());
-        ((TextView) header.findViewById(R.id.tv_correo_menu)).setText(itemUsuario.getCorreo());
+        ((TextView) header.findViewById(R.id.tv_nombre_usuario_menu)).setText(itemUser.getNombre());
+        ((TextView) header.findViewById(R.id.tv_correo_menu)).setText(itemUser.getCorreo());
 
         Bitmap bitmapsinfoto = BitmapFactory.decodeResource(getResources(),R.drawable.imagen);
         RoundedBitmapDrawable roundedBitmapDrawablesinfoto = RoundedBitmapDrawableFactory.create(getResources(), bitmapsinfoto);
@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity
 
         ((ImageView) header.findViewById(R.id.imageView)).setImageDrawable(roundedBitmapDrawablesinfoto);
 
-        if(itemUsuario.getBytes()!=null){
-            byte[] foodImage = itemUsuario.getBytes();
+        if(itemUser.getBytes()!=null){
+            byte[] foodImage = itemUser.getBytes();
             Bitmap bitmap = BitmapFactory.decodeByteArray(foodImage, 0, foodImage.length);
 
             ((ImageView) header.findViewById(R.id.imageView)).setImageBitmap(bitmap);
