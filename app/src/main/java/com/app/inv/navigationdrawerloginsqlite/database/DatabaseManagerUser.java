@@ -11,19 +11,19 @@ import java.util.List;
 
 public class DatabaseManagerUser extends DatabaseManager {
 
-    private static final String NOMBRE_TABLA = "demo";
+    private static final String TABLE_NAME = "demo";
     private static final String CN_ID = "_id";
-    private static final String CN_CORREO = "correo";
+    private static final String CN_EMAIL = "correo";
     private static final String CN_PASSWORD = "password";
     private static final String CN_IMAGE = "imagen";
-    private static final String CN_NOMBRE = "nombre";
+    private static final String CN_NAME = "nombre";
 
-    public static final String CREATE_TABLE = "create table " + NOMBRE_TABLA + " ("
+    public static final String CREATE_TABLE = "create table " + TABLE_NAME + " ("
             + CN_ID + " integer PRIMARY KEY AUTOINCREMENT, "
-            + CN_CORREO + " text NULL, "
+            + CN_EMAIL + " text NULL, "
             + CN_PASSWORD + " text NULL, "
             + CN_IMAGE + " BLOB NULL, "
-            + CN_NOMBRE + " text NOT NULL "
+            + CN_NAME + " text NOT NULL "
             + ");";
 
     public DatabaseManagerUser(Context ctx) {
@@ -38,51 +38,51 @@ public class DatabaseManagerUser extends DatabaseManager {
     private ContentValues generarContentValues(String id, String correo, String password, byte[] imagen, String nombre){
         ContentValues valores = new ContentValues();
         valores.put(CN_ID, id);
-        valores.put(CN_CORREO, correo);
+        valores.put(CN_EMAIL, correo);
         valores.put(CN_PASSWORD, password);
         valores.put(CN_IMAGE, imagen);
-        valores.put(CN_NOMBRE, nombre);
+        valores.put(CN_NAME, nombre);
 
         return valores;
     }
 
 
     public void insertar_parametros(String id, String correo, String password, byte[] imagen, String nombre) {
-        Log.d("usuario_insertar", super.getDb().insert(NOMBRE_TABLA,null,generarContentValues(id, correo, password, imagen, nombre))+"");
+        Log.d("usuario_insertar", super.getDb().insert(TABLE_NAME,null,generarContentValues(id, correo, password, imagen, nombre))+"");
     }
 
     public void actualizar_parametros(String id, String correo, String pass, byte[] imagen, String nombre) {
 
         ContentValues valores = new ContentValues();
         valores.put(CN_ID, id);
-        valores.put(CN_CORREO, correo);
+        valores.put(CN_EMAIL, correo);
         valores.put(CN_PASSWORD, pass);
         valores.put(CN_IMAGE, imagen);
-        valores.put(CN_NOMBRE, nombre);
+        valores.put(CN_NAME, nombre);
 
         String [] args = new String[]{id};
 
-        Log.d("actualizar", super.getDb().update(NOMBRE_TABLA, valores,"_ID=?", args)+"");
+        Log.d("actualizar", super.getDb().update(TABLE_NAME, valores,"_ID=?", args)+"");
     }
 
     @Override
     public void remove(String id) {
 
-        super.getDb().delete(NOMBRE_TABLA, CN_ID +"=?", new String[]{id});
+        super.getDb().delete(TABLE_NAME, CN_ID +"=?", new String[]{id});
     }
 
     @Override
     public void removeAll() {
 
-        super.getDb().execSQL("DELETE FROM "+ NOMBRE_TABLA+";");
+        super.getDb().execSQL("DELETE FROM "+ TABLE_NAME+";");
     }
 
     @Override
     public Cursor loadCursor() {
 
-        String [] columnas = new String[]{CN_ID, CN_CORREO, CN_PASSWORD, CN_IMAGE, CN_NOMBRE};
+        String [] columnas = new String[]{CN_ID, CN_EMAIL, CN_PASSWORD, CN_IMAGE, CN_NAME};
 
-        return super.getDb().query(NOMBRE_TABLA, columnas, null, null, null, null, null);
+        return super.getDb().query(TABLE_NAME, columnas, null, null, null, null, null);
     }
 
     @Override
