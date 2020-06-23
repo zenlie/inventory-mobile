@@ -31,7 +31,7 @@ public class DatabaseManagerUser extends DatabaseManager {
     }
 
     @Override
-    public void cerrar() {
+    public void close() {
         super.getDb().close();
     }
 
@@ -66,19 +66,19 @@ public class DatabaseManagerUser extends DatabaseManager {
     }
 
     @Override
-    public void eliminar(String id) {
+    public void remove(String id) {
 
         super.getDb().delete(NOMBRE_TABLA, CN_ID +"=?", new String[]{id});
     }
 
     @Override
-    public void eliminarTodo() {
+    public void removeAll() {
 
         super.getDb().execSQL("DELETE FROM "+ NOMBRE_TABLA+";");
     }
 
     @Override
-    public Cursor cargarCursor() {
+    public Cursor loadCursor() {
 
         String [] columnas = new String[]{CN_ID, CN_CORREO, CN_PASSWORD, CN_IMAGE, CN_NOMBRE};
 
@@ -86,7 +86,7 @@ public class DatabaseManagerUser extends DatabaseManager {
     }
 
     @Override
-    public boolean comprobarRegistro(String correo) {
+    public boolean checkRegister(String correo) {
 
         boolean esta;
         Cursor resultSet = super.getDb().rawQuery("SELECT correo FROM demo" + " WHERE correo='"+correo+"'", null);
@@ -102,7 +102,7 @@ public class DatabaseManagerUser extends DatabaseManager {
     public List<User> getUsuariosList(){
 
         List<User> list = new ArrayList<>();
-        Cursor c = cargarCursor();
+        Cursor c = loadCursor();
 
         while (c.moveToNext()){
             User usuario = new User();

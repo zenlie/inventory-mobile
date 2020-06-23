@@ -7,23 +7,23 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DB_NOMBRE = "demo.sqlite";
+    private static final String DB_NAME = "demo.sqlite";
     private static int DB_SCHEME_VERSION = 1;
 
     public DatabaseHelper(Context context) {
-        super(context, DB_NOMBRE, null, DB_SCHEME_VERSION);
+        super(context, DB_NAME, null, DB_SCHEME_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // crea tabla usuario
+        // create table user
         db.execSQL(DatabaseManagerUser.CREATE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        db.execSQL("DROP TABLE IF EXISTS"+DB_NOMBRE);
+        db.execSQL("DROP TABLE IF EXISTS"+DB_NAME);
         onCreate(db);
     }
 }

@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(getApplicationContext(),UserRegistro.class);
+                Intent intent =new Intent(getApplicationContext(), UserRegister.class);
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                 new Runnable() {
                     public void run() {
 
-                        if (databaseManager.comprobarRegistro(email)){
+                        if (databaseManager.checkRegister(email)){
                             comprobar = databaseManager.getDb().rawQuery("SELECT correo, password FROM demo" + " WHERE correo='"+email+"' AND password='"+password+"'",null);
                             if(comprobar.moveToFirst()){
                                 Intent intent =new Intent(getApplicationContext(),MainActivity.class);

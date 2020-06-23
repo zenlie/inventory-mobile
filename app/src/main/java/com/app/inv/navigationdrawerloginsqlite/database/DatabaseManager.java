@@ -15,14 +15,14 @@ public abstract class DatabaseManager {
         db = helper.getWritableDatabase();
     }
 
-    public void cerrar(){
+    public void close(){
         db.close();
     }
 
-    abstract public void eliminar(String id);
-    abstract public void eliminarTodo();
-    abstract public Cursor cargarCursor();
-    abstract boolean comprobarRegistro(String id);
+    abstract public void remove(String id);
+    abstract public void removeAll();
+    abstract public Cursor loadCursor();
+    abstract boolean checkRegister(String id);
 
     public DatabaseHelper getHelper() {
         return helper;

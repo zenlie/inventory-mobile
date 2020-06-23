@@ -23,16 +23,16 @@ import java.io.ByteArrayOutputStream;
  * user register.
  */
 
-public class UserRegistro extends AppCompatActivity {
+public class UserRegister extends AppCompatActivity {
 
     private TextView loginLink;
     private ImageView imageView;
     private EditText password;
-    private EditText nombre;
+    private EditText name;
     private EditText email;
     private Button register;
-    private DatabaseManagerUser managerUsuario;
-    private String sPassword, sNombre, sEmail;
+    private DatabaseManagerUser managerUser;
+    private String sPassword, sName, sEmail;
     private int request_code = 1;
     private Bitmap bitmap_foto;
     private RoundedBitmapDrawable roundedBitmapDrawable;
@@ -47,7 +47,7 @@ public class UserRegistro extends AppCompatActivity {
         loginLink = (TextView)findViewById(R.id.link_login);
         email = (EditText)findViewById(R.id.email_register);
         password = (EditText)findViewById(R.id.password_register);
-        nombre = (EditText)findViewById(R.id.name_register);
+        name = (EditText)findViewById(R.id.name_register);
         register = (Button)findViewById(R.id.btn_register_user);
         bitmap_foto = BitmapFactory.decodeResource(getResources(),R.drawable.imagen);
         roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap_foto);
@@ -99,32 +99,32 @@ public class UserRegistro extends AppCompatActivity {
 
         sEmail = email.getText().toString();
         sPassword = password.getText().toString();
-        sNombre = nombre.getText().toString();
+        sName = name.getText().toString();
 
-        final ProgressDialog progressDialog = new ProgressDialog(UserRegistro.this,
+        final ProgressDialog progressDialog = new ProgressDialog(UserRegister.this,
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Creating account ...");
         progressDialog.show();
 
-        managerUsuario = new DatabaseManagerUser(this);
+        managerUser = new DatabaseManagerUser(this);
 
         email.getText().clear();
         password.getText().clear();
-        nombre.getText().clear();
+        name.getText().clear();
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        if(managerUsuario.comprobarRegistro(sEmail)){
+                        if(managerUser.checkRegister(sEmail)){
                             progressDialog.dismiss();
                             password.setText(sPassword);
-                            nombre.setText(sNombre);
+                            name.setText(sName);
                             String mesg = String.format("The email you entered is already registered", null);
                             Toast.makeText(getApplicationContext(),mesg, Toast.LENGTH_LONG).show();
                         }else {
-                            managerUsuario.insertar_parametros(null, sEmail, sPassword, bytes, sNombre);
-                            String mesg = String.format("%s has been saved in the database", sNombre);
+                            managerUser.insertar_parametros(null, sEmail, sPassword, bytes, sName);
+                            String mesg = String.format("%s has been saved in the database", sName);
                             Toast.makeText(getBaseContext(),mesg, Toast.LENGTH_LONG).show();
                             Intent intent =new Intent(getApplicationContext(),MainActivity.class);
                             intent.putExtra("IDENT",sEmail);
@@ -139,15 +139,15 @@ public class UserRegistro extends AppCompatActivity {
     private boolean validar() {
         boolean valid = true;
 
-        String sNombre = nombre.getText().toString();
+        String sName = name.getText().toString();
         String sPassword = password.getText().toString();
         String sEmail = email.getText().toString();
 
-        if (sNombre.isEmpty() || sNombre.length() < 3) {
-            nombre.setError("Please enter at least 3 characters");
+        if (sName.isEmpty() || sName.length() < 3) {
+            name.setError("Please enter at least 3 characters");
             valid = false;
         } else {
-            nombre.setError(null);
+            name.setError(null);
         }
 
         if (sEmail.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(sEmail).matches()) {

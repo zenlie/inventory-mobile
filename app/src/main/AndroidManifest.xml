@@ -19,7 +19,7 @@
             android:name="com.app.inv.navigationdrawerloginsqlite.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme"></activity>
-        <activity android:name="com.app.inv.navigationdrawerloginsqlite.UserRegistro"
+        <activity android:name="com.app.inv.navigationdrawerloginsqlite.UserRegister"
             android:theme="@style/AppTheme.Dark">
         </activity>
     </application>
