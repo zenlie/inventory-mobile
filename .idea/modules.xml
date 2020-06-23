@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/NavigationDrawerLoginSQLite.iml" filepath="$PROJECT_DIR$/NavigationDrawerLoginSQLite.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/inventory.iml" filepath="$PROJECT_DIR$/.idea/modules/inventory.iml" group="inventory" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/inventory-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/inventory-app.iml" group="inventory/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/markarov - Copy - Copy-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/markarov - Copy - Copy-app.iml" group="markarov - Copy - Copy/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/markarov_-_Copy_-_Copy.iml" filepath="$PROJECT_DIR$/.idea/modules/markarov_-_Copy_-_Copy.iml" group="markarov_-_Copy_-_Copy" />
     </modules>
