@@ -1,13 +1,13 @@
-package com.michael.jared.navigationdrawerloginsqlite.entity;
+package com.app.mobile.inv.entity;
 
 /**
- * Created by Maycol Meza on 15/04/2017.
+ * User Entinty
  */
 
 public class User {
 
     private byte[] bytes;
-    private String id, correo, password, nombre;
+    private String id, mail, password, name;
     private boolean active;
 
     public byte[] getBytes() {
@@ -26,19 +26,19 @@ public class User {
         this.active = active;
     }
 
-    public User(String id, String correo, String password, String nombre) {
+    public User(String id, String mail, String password, String name) {
         this.id = id;
-        this.correo = correo;
+        this.mail = mail;
         this.password = password;
-        this.nombre = nombre;
+        this.name = name;
     }
 
-    public User(String id, String correo, String password,byte[] bytes, String nombre) {
+    public User(String id, String mail, String password,byte[] bytes, String name) {
         this.bytes = bytes;
         this.id = id;
-        this.correo = correo;
+        this.mail = mail;
         this.password = password;
-        this.nombre = nombre;
+        this.name = name;
     }
 
     public boolean isActive() {
@@ -53,8 +53,8 @@ public class User {
         this.id = id;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public void setPassword(String pass) {
@@ -65,20 +65,20 @@ public class User {
         return id;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getMail() {
+        return mail;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
 }

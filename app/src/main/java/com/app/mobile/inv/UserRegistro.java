@@ -1,4 +1,4 @@
-package com.michael.jared.navigationdrawerloginsqlite;
+package com.app.mobile.inv;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -10,18 +10,17 @@ import android.os.Bundle;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.michael.jared.navigationdrawerloginsqlite.database.DatabaseManagerUser;
+import com.app.mobile.inv.database.DatabaseManagerUser;
 import java.io.ByteArrayOutputStream;
 
 /**
- * Created by Maycol Meza on 15/04/2017.
+ * user register.
  */
 
 public class UserRegistro extends AppCompatActivity {
@@ -29,11 +28,11 @@ public class UserRegistro extends AppCompatActivity {
     private TextView loginLink;
     private ImageView imageView;
     private EditText password;
-    private EditText nombre;
+    private EditText name;
     private EditText email;
-    private Button registrar;
-    private DatabaseManagerUser managerUsuario;
-    private String sPassword, sNombre, sEmail;
+    private Button register;
+    private DatabaseManagerUser managerUser;
+    private String sPassword, sName, sEmail;
     private int request_code = 1;
     private Bitmap bitmap_foto;
     private RoundedBitmapDrawable roundedBitmapDrawable;
@@ -48,17 +47,17 @@ public class UserRegistro extends AppCompatActivity {
         loginLink = (TextView)findViewById(R.id.link_login);
         email = (EditText)findViewById(R.id.correo_registro);
         password = (EditText)findViewById(R.id.password_registro);
-        nombre = (EditText)findViewById(R.id.nombre_registro);
-        registrar = (Button)findViewById(R.id.btn_registro_usuario);
-        bitmap_foto = BitmapFactory.decodeResource(getResources(),R.drawable.imagen);
+        name = (EditText)findViewById(R.id.name_registro);
+        register = (Button)findViewById(R.id.btn_registro_usuario);
+        bitmap_foto = BitmapFactory.decodeResource(getResources(),R.drawable.image);
         roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap_foto);
         roundedBitmapDrawable.setCircular(true);
         imageView.setImageDrawable(roundedBitmapDrawable);
 
-        registrar.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registrar();
+                register();
             }
         });
 
@@ -94,13 +93,13 @@ public class UserRegistro extends AppCompatActivity {
         });
     }
 
-    public void registrar(){
+    public void register(){
 
         if (!validar()) return;
 
         sEmail = email.getText().toString();
         sPassword = password.getText().toString();
-        sNombre = nombre.getText().toString();
+        sName = name.getText().toString();
 
         final ProgressDialog progressDialog = new ProgressDialog(UserRegistro.this,
                 R.style.AppTheme_Dark_Dialog);
@@ -108,24 +107,24 @@ public class UserRegistro extends AppCompatActivity {
         progressDialog.setMessage("Creating account ...");
         progressDialog.show();
 
-        managerUsuario = new DatabaseManagerUser(this);
+        managerUser = new DatabaseManagerUser(this);
 
         email.getText().clear();
         password.getText().clear();
-        nombre.getText().clear();
+        name.getText().clear();
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        if(managerUsuario.comprobarRegistro(sEmail)){
+                        if(managerUser.comprobarRegistro(sEmail)){
                             progressDialog.dismiss();
                             password.setText(sPassword);
-                            nombre.setText(sNombre);
+                            name.setText(sName);
                             String mesg = String.format("The email you entered is already registered", null);
                             Toast.makeText(getApplicationContext(),mesg, Toast.LENGTH_LONG).show();
                         }else {
-                            managerUsuario.insertar_parametros(null, sEmail, sPassword, bytes, sNombre);
-                            String mesg = String.format("%s has been saved in the database", sNombre);
+                            managerUser.insertar_parametros(null, sEmail, sPassword, bytes, sName);
+                            String mesg = String.format("%s has been saved in the database", sName);
                             Toast.makeText(getBaseContext(),mesg, Toast.LENGTH_LONG).show();
                             Intent intent =new Intent(getApplicationContext(),MainActivity.class);
                             intent.putExtra("IDENT",sEmail);
@@ -140,15 +139,15 @@ public class UserRegistro extends AppCompatActivity {
     private boolean validar() {
         boolean valid = true;
 
-        String sNombre = nombre.getText().toString();
+        String sName = name.getText().toString();
         String sPassword = password.getText().toString();
         String sEmail = email.getText().toString();
 
-        if (sNombre.isEmpty() || sNombre.length() < 3) {
-            nombre.setError("Please enter at least 3 characters");
+        if (sName.isEmpty() || sName.length() < 3) {
+            name.setError("Please enter at least 3 characters");
             valid = false;
         } else {
-            nombre.setError(null);
+            name.setError(null);
         }
 
         if (sEmail.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(sEmail).matches()) {
@@ -183,7 +182,7 @@ public class UserRegistro extends AppCompatActivity {
             imageView.setImageURI(data.getData());
             bytes = imageToByte(imageView);
 
-            // para que se vea la imagen en circulo
+            // para que se vea la image en circulo
             Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
             roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap);
             roundedBitmapDrawable.setCircular(true);

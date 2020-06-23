@@ -1,10 +1,10 @@
-package com.michael.jared.navigationdrawerloginsqlite.database;
+package com.app.mobile.inv.database;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
-import com.michael.jared.navigationdrawerloginsqlite.entity.User;
+import com.app.mobile.inv.entity.User;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class DatabaseManagerUser extends DatabaseManager {
     private static final String USER_ID = "_id";
     private static final String USER_MAIL = "mail";
     private static final String USER_PASSWORD = "password";
-    private static final String USER_IMAGE = "imagen";
+    private static final String USER_IMAGE = "image";
     private static final String USER_NAMA = "nombre";
 
     public static final String CREATE_TABLE = "create table " + NAMA_TABLE + " ("

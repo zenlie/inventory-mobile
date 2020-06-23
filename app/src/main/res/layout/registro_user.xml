@@ -12,8 +12,8 @@
         android:layout_marginTop="15dp"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:id="@+id/usuario_imagen_registro"
-        android:src="@drawable/imagen"
+        android:id="@+id/register_image_user"
+        android:src="@drawable/image"
         android:scaleType="centerCrop"/>
 
 
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:id="@+id/nombre_registro"
+            android:id="@+id/register_name"
             android:inputType="textCapWords|textPersonName"
             android:hint="Nama"/>
         <EditText
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:id="@+id/correo_registro"
+            android:id="@+id/register_mail"
             android:inputType="textEmailAddress"
             android:hint="E-mail"/>
 
@@ -50,7 +50,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:inputType="textPassword"
-            android:id="@+id/password_registro"
+            android:id="@+id/register_password"
             android:hint="Password"/>
 
 
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Daftar"
-            android:id="@+id/btn_registro_usuario"
+            android:id="@+id/btn_register_user"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="12dp"
             android:padding="12dp"/>

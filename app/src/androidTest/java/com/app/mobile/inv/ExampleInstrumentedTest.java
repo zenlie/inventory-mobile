@@ -1,4 +1,4 @@
-package com.michael.jared.navigationdrawerloginsqlite;
+package com.app.mobile.inv;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

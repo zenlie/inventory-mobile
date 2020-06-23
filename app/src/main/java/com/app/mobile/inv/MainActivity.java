@@ -1,4 +1,4 @@
-package com.michael.jared.navigationdrawerloginsqlite;
+package com.app.mobile.inv;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,8 +20,8 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.michael.jared.navigationdrawerloginsqlite.database.DatabaseManagerUser;
-import com.michael.jared.navigationdrawerloginsqlite.entity.User;
+import com.app.mobile.inv.database.DatabaseManagerUser;
+import com.app.mobile.inv.entity.User;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity
         ((TextView) header.findViewById(R.id.tv_nombre_usuario_menu)).setText(itemUsuario.getNombre());
         ((TextView) header.findViewById(R.id.tv_correo_menu)).setText(itemUsuario.getCorreo());
 
-        Bitmap bitmapsinfoto = BitmapFactory.decodeResource(getResources(),R.drawable.imagen);
+        Bitmap bitmapsinfoto = BitmapFactory.decodeResource(getResources(),R.drawable.image);
         RoundedBitmapDrawable roundedBitmapDrawablesinfoto = RoundedBitmapDrawableFactory.create(getResources(), bitmapsinfoto);
         roundedBitmapDrawablesinfoto.setCircular(true);
 

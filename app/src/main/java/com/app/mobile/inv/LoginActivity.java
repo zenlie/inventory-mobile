@@ -1,4 +1,4 @@
-package com.michael.jared.navigationdrawerloginsqlite;
+package com.app.mobile.inv;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,16 +11,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.michael.jared.navigationdrawerloginsqlite.database.DatabaseManagerUser;
+import com.app.mobile.inv.database.DatabaseManagerUser;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText eEmail, ePassword;
-    private Button acceder;
-    private TextView registrar;
+    private Button access;
+    private TextView register;
     private String email;
     private String password;
-    private Cursor comprobar;
+    private Cursor check;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +29,10 @@ public class LoginActivity extends AppCompatActivity {
 
         eEmail = (EditText)findViewById(R.id.etusuario);
         ePassword = (EditText)findViewById(R.id.etpass);
-        acceder = (Button)findViewById(R.id.button);
-        registrar = (TextView)findViewById(R.id.signup);
+        access = (Button)findViewById(R.id.button);
+        register = (TextView)findViewById(R.id.signup);
 
-        registrar.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent =new Intent(getApplicationContext(),UserRegistro.class);
@@ -42,17 +42,17 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        acceder.setOnClickListener(new View.OnClickListener() {
+        access.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iniciar();
+                Start();
             }
         });
     }
 
-    private void iniciar() {
-        // sample comment
-        if (!validar()) return;
+    private void Start() {
+
+        if (!validate()) return;
 
         email = eEmail.getText().toString();
         password = ePassword.getText().toString();
@@ -64,7 +64,6 @@ public class LoginActivity extends AppCompatActivity {
 
         final DatabaseManagerUser databaseManager = new DatabaseManagerUser(getApplicationContext());
 
-        //membersihkan field text
         eEmail.getText().clear();
         ePassword.getText().clear();
 
@@ -72,9 +71,9 @@ public class LoginActivity extends AppCompatActivity {
                 new Runnable() {
                     public void run() {
 
-                        if (databaseManager.comprobarRegistro(email)){
-                            comprobar = databaseManager.getDb().rawQuery("SELECT correo, password FROM demo" + " WHERE correo='"+email+"' AND password='"+password+"'",null);
-                            if(comprobar.moveToFirst()){
+                        if (databaseManager.checkRegistro(email)){
+                            check = databaseManager.getDb().rawQuery("SELECT correo, password FROM demo" + " WHERE correo='"+email+"' AND password='"+password+"'",null);
+                            if(check.moveToFirst()){
                                 Intent intent =new Intent(getApplicationContext(),MainActivity.class);
                                 intent.putExtra("IDENT",email);
                                 startActivity(intent);
@@ -96,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private boolean validar() {
+    private boolean validate() {
         boolean valid = true;
 
         String email = eEmail.getText().toString();

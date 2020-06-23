@@ -1,4 +1,4 @@
-package com.michael.jared.navigationdrawerloginsqlite.database;
+package com.app.mobile.inv.database;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -15,14 +15,14 @@ public abstract class DatabaseManager {
         db = helper.getWritableDatabase();
     }
 
-    public void cerrar(){
+    public void untuk_menutup(){
         db.close();
     }
 
-    abstract public void eliminar(String id);
-    abstract public void eliminarTodo();
-    abstract public Cursor cargarCursor();
-    abstract boolean comprobarRegistro(String id);
+    abstract public void menghapus(String id);
+    abstract public void menghapus_semua();
+    abstract public Cursor loadCursor();
+    abstract boolean checkRegister(String id);
 
     public DatabaseHelper getHelper() {
         return helper;
