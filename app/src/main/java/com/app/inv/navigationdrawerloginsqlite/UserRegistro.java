@@ -20,7 +20,7 @@ import com.app.inv.navigationdrawerloginsqlite.database.DatabaseManagerUser;
 import java.io.ByteArrayOutputStream;
 
 /**
- * Created by Maycol Meza on 15/04/2017.
+ * user register.
  */
 
 public class UserRegistro extends AppCompatActivity {
@@ -30,7 +30,7 @@ public class UserRegistro extends AppCompatActivity {
     private EditText password;
     private EditText nombre;
     private EditText email;
-    private Button registrar;
+    private Button register;
     private DatabaseManagerUser managerUsuario;
     private String sPassword, sNombre, sEmail;
     private int request_code = 1;
@@ -48,16 +48,16 @@ public class UserRegistro extends AppCompatActivity {
         email = (EditText)findViewById(R.id.email_register);
         password = (EditText)findViewById(R.id.password_register);
         nombre = (EditText)findViewById(R.id.name_register);
-        registrar = (Button)findViewById(R.id.btn_register_user);
+        register = (Button)findViewById(R.id.btn_register_user);
         bitmap_foto = BitmapFactory.decodeResource(getResources(),R.drawable.imagen);
         roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap_foto);
         roundedBitmapDrawable.setCircular(true);
         imageView.setImageDrawable(roundedBitmapDrawable);
 
-        registrar.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registrar();
+                register();
             }
         });
 
@@ -93,7 +93,7 @@ public class UserRegistro extends AppCompatActivity {
         });
     }
 
-    public void registrar(){
+    public void register(){
 
         if (!validar()) return;
 
