@@ -24,11 +24,11 @@
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:text="Android Studio"
-        android:id="@+id/tv_nombre_usuario_menu"
+        android:id="@+id/tv_user_name_menu"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
-        android:id="@+id/tv_correo_menu"
+        android:id="@+id/tv_mail_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="android.studio@android.com" />

@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity
 
         View header = ((NavigationView)findViewById(R.id.nav_view)).getHeaderView(0);
 
-        ((TextView) header.findViewById(R.id.tv_nombre_usuario_menu)).setText(itemUser.getNombre());
-        ((TextView) header.findViewById(R.id.tv_correo_menu)).setText(itemUser.getCorreo());
+        ((TextView) header.findViewById(R.id.tv_user_name_menu)).setText(itemUser.getNombre());
+        ((TextView) header.findViewById(R.id.tv_mail_menu)).setText(itemUser.getCorreo());
 
         Bitmap bitmapsinfoto = BitmapFactory.decodeResource(getResources(),R.drawable.imagen);
         RoundedBitmapDrawable roundedBitmapDrawablesinfoto = RoundedBitmapDrawableFactory.create(getResources(), bitmapsinfoto);
