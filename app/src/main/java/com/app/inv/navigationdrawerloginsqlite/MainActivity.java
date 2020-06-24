@@ -1,5 +1,8 @@
 package com.app.inv.navigationdrawerloginsqlite;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -30,10 +33,16 @@ public class MainActivity extends AppCompatActivity
     private User itemUser;
     private String ident;
 
+    SharedPreferences sharedpreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //
+
+        //
 
         // added code from 39 to 68
         Bundle b = getIntent().getExtras();
@@ -146,4 +155,8 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    //
+
+    //
 }

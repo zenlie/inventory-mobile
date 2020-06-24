@@ -1,6 +1,7 @@
 package com.app.inv.navigationdrawerloginsqlite;
 
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
@@ -21,6 +22,9 @@ public class LoginActivity extends AppCompatActivity {
     private String email;
     private String password;
     private Cursor comprobar;
+    //ini
+    SharedPreferences sp;
+    //
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,13 @@ public class LoginActivity extends AppCompatActivity {
         ePassword = (EditText)findViewById(R.id.password);
         signin = (Button)findViewById(R.id.signin);
         signup = (TextView)findViewById(R.id.signup);
+
+        //ini
+        sp = getSharedPreferences("signin",MODE_PRIVATE);
+        if(sp.getBoolean("logged",false)){
+            new MainActivity();
+        }
+        //
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
