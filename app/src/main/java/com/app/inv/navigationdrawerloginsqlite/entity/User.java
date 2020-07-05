@@ -1,7 +1,7 @@
 package com.app.inv.navigationdrawerloginsqlite.entity;
 
 /**
- * Created by Maycol Meza on 15/04/2017.
+ * Entity  User
  */
 
 public class User {

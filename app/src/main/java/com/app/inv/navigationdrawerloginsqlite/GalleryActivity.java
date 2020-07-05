@@ -26,7 +26,7 @@ import android.widget.TextView;
 import com.app.inv.navigationdrawerloginsqlite.database.DatabaseManagerUser;
 import com.app.inv.navigationdrawerloginsqlite.entity.User;
 
-public class MainActivity extends AppCompatActivity
+public class GalleryActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private DatabaseManagerUser databaseManagerUser;
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_gallery);
 
         //
 
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-            startActivity(new Intent(this, GalleryActivity.class));
+            startActivity(new Intent(this, UserRegister.class));
 
         } else if (id == R.id.nav_slideshow) {
 
